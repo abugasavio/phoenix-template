@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 from __future__ import absolute_import, unicode_literals
 
 import environ
+from .permissions import *  # noqa
 
 ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
 APPS_DIR = ROOT_DIR.path('phoenix')
@@ -36,11 +37,21 @@ DJANGO_APPS = (
 )
 THIRD_PARTY_APPS = (
     'crispy_forms',  # Form layouts
+    'guardian',
+    'smartmin',
+    'bootstrap3',
+    'django_select2',
+    'bootstrap3_datetime',
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
-    # Your stuff: custom apps go here
+    'phoenix.apps.animals',
+    'phoenix.apps.dashboard',
+    'phoenix.apps.finances',
+    'phoenix.apps.health',
+    'phoenix.apps.utils',
+    'phoenix.apps.records',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -232,4 +243,12 @@ LOGGING = {
     }
 }
 
-# Your common stuff: Below this line define 3rd party library settings
+# SMARTMIN SETTINGS
+ANONYMOUS_USER_ID = -1
+LOGIN_URL = '/users/login'
+LOGIN_REDIRECT_URL = '/animals/animal/'
+
+# Select2 settings
+AUTO_RENDER_SELECT2_STATICS = False
+
+

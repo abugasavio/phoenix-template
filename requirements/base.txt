@@ -1,5 +1,5 @@
 # Django
-django==1.7.7
+django==1.7.8
 
 # Configuration
 django-environ==0.3.0
@@ -26,4 +26,11 @@ django-autoslug==1.7.2
 # Time zones support
 pytz==2015.2
 
-# Your custom requirements go here
+
+celery==3.1.18
+django-bootstrap3==5.4.0
+django-select2==4.3.1
+django-bootstrap3-datetimepicker==2.2.3
+django-fsm==2.2.1
+git+git://github.com/nyaruka/smartmin.git@3d4a980fcafa4b24283c8fe3c6d8a4859e871dc2
+

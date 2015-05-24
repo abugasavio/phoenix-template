@@ -1,0 +1,4 @@
+{% extends "smartmin/related_list.html" %}
+{% block relatedlist_addurl %}
+    {% url 'animals.service_create' %}?animal={{ animal.id }}
+{% endblock relatedlist_addurl %}

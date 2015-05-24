@@ -1,0 +1,7 @@
+{% extends "smartmin/create.html" %}
+{% load staticfiles i18n %}
+{% block extra-script %}
+    <script type="text/javascript" src="{% static 'js/select2/heavy_data.js' %}"></script>
+{% endblock %}
+{% block title %}{{ block.super }}  | Add Animal Service {% endblock title %}
+{% block page_title %} Add Animal Service {% endblock %}

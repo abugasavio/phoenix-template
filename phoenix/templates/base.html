@@ -1,0 +1,100 @@
+{% load staticfiles i18n %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  {% load bootstrap3 %}
+  <title>{% block title %} Farmguru {% endblock %}</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Google Font: Open Sans -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300,700">
+
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="{% static 'css/mvpready-admin-belize.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mvpready-flat.css' %}">
+  <link rel="stylesheet" href="{% static 'css/farmguru.css' %}">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- JQuery -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  {% block extra-style %}{% endblock %}
+
+</head>
+
+<body class=" ">
+
+<div id="wrapper">
+
+  {% block header %}
+    {% include "partials/header.html" %}
+  {% endblock %}
+
+  <div class="content">
+
+    <div class="container">
+        <div class="row">
+            <h2 class="">{% block page_title %}{% endblock %}</h2>
+        </div>
+        {% bootstrap_messages %}
+
+        {% block content %} {% endblock %}
+
+    </div> <!-- /.container -->
+
+  </div> <!-- .content -->
+
+</div> <!-- /#wrapper -->
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-left">Copyright &copy; 2015 farmguru.</p>
+  </div>
+</footer>
+
+
+{# compress js #}
+
+<script src="{% static 'js/libs/bootstrap.min.js' %}"></script>
+
+<!--[if lt IE 9]>
+<script src="{% static 'js/libs/excanvas.compiled.js' %}"></script>
+<![endif]-->
+
+<!-- App JS -->
+<script src="{% static 'js/mvpready-core.js' %}"></script>
+<script src="{% static 'js/mvpready-admin.js' %}"></script>
+
+{% block extra-script %}{% endblock %}
+
+{# media associated with any form we are displaying #}
+{% if form %}
+{{ form.media }}
+{% endif %}
+
+{% block script %}{% endblock %}
+{# endcompress #}
+
+</body>
+</html>

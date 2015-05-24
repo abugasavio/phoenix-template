@@ -1,0 +1,308 @@
+{% load staticfiles i18n %}
+{% block extra-script %}
+    <script type="text/javascript" src="{% static 'js/select2/heavy_data.js' %}"></script>
+{% endblock %}
+{% if form.non_field_errors %}
+  <div class="alert alert-danger" role="alert">
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+  {% for error in form.non_field_errors %}
+
+    {{ error }}
+
+  {% endfor %}
+  </div>
+{% endif %}
+<form action="" method="post"> {% csrf_token %}
+    <fieldset>
+        <h3 class="content-title"><u>Identity</u></h3>
+        <!-- row 1 -->
+        <div class='row'>
+            <div class='col-sm-4'>
+                <div class="form-group{% if form.ear_tag.errors %} has-error{% endif %}">
+                    {{ form.ear_tag.label_tag }}
+                    {{ form.ear_tag }}
+                    <div class="text-muted pull-right">
+                        <small>{{ form.ear_tag.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.ear_tag.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+                <div class="form-group{% if form.name.errors %} has-error{% endif %}">
+                    {{ form.name.label_tag }}
+                    {{ form.name }}
+                    <div class="text-muted pull-right">
+                        <small>{{ form.name.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.name.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+                <div class="form-group{% if form.animal_id.errors %} has-error{% endif %}">
+                    {{ form.animal_id.label_tag }}
+                    {{ form.animal_id }}
+                    <div class="text-muted pull-right">
+                        <small>{{ form.animal_id.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.animal_id.errors }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of row 1 -->
+
+        <!-- row 2 -->
+        <div class='row'>
+            <div class='col-sm-4'>
+                <div class="form-group{% if form.electronic_id.errors %} has-error{% endif %}">
+                    {{ form.electronic_id.label_tag }}
+                    {{ form.electronic_id }}
+                    <div class="text-muted pull-right">
+                        <small>{{ form.electronic_id.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.electronic_id.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+                <div class="form-group{% if form.alt_id.errors %} has-error{% endif %}">
+                    {{ form.alt_id.label_tag }}
+                    {{ form.alt_id }}
+                    <div class="text-muted pull-right">
+                        <small>{{ form.alt_id.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.alt_id.errors }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of row 2 -->
+    </fieldset>
+    <!-- end of identity -->
+
+    <!-- description -->
+    <fieldset>
+        <h3 class="content-title"><u>Description</u></h3>
+        <div class='row'>
+            <div class='col-sm-4'>
+                <div class="form-group{% if form.color.errors %} has-error{% endif %}">
+                    {{ form.color.label_tag }}
+                    {{ form.color }}
+                    <div class="text-muted pull-right">
+                        <small>{{ form.color.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.color.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+                <div class="form-group{% if form.breed.errors %} has-error{% endif %}">
+                    {{ form.breed.label_tag }}
+                    {{ form.breed }}
+                    <div class="text-muted pull-right">
+                        <small>{{ form.breed.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.breed.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+                <div class="form-group{% if form.gender.errors %} has-error{% endif %}">
+                    {{ form.gender.label_tag }}
+                    {{ form.gender }}
+                    <div class="text-muted pull-right">
+                        <small>{{ field.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.gender.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+                <div class="form-group{% if form.sire.errors %} has-error{% endif %}">
+                    {{ form.sire.label_tag }}
+                    {{ form.sire }}
+                    <div class="text-muted pull-right">
+                        <small>{{ form.sire.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.sire.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+               <div class="form-group{% if form.dam.errors %} has-error{% endif %}">
+                    {{ form.dam.label_tag }}
+                    {{ form.dam }}
+                    <div class="text-muted pull-right">
+                        <small>{{ form.dam.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.dam.errors }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <!-- end of description -->
+
+    <!-- status -->
+    <fieldset>
+        <h3 class="content-title"><u>Status</u></h3>
+        <div class='row'>
+            <div class='col-sm-4'>
+                <div class="form-group{% if form.status.errors %} has-error{% endif %}">
+                    {{ form.status.label_tag }}
+                    {{ form.status }}
+                    <div class="text-muted pull-right">
+                        <small>{{ form.status.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.status.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+                <div class='form-group'>
+                    <div class="form-group{% if form.group.errors %} has-error{% endif %}">
+                        {{ form.group.label_tag }}<br/>
+                        {{ form.group }}
+                        <div class="text-muted pull-right">
+                            <small>{{ form.group.help_text }}</small>
+                        </div>
+                        <div class="help-block">
+                            {{ form.group.errors }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+                <div class="form-group{% if form.pasture.errors %} has-error{% endif %}">
+                    {{ form.pasture.label_tag }}
+                    {{ form.pasture }}
+                    <div class="text-muted pull-right">
+                        <small>{{ form.pasture.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.pasture.errors }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <!-- end of status -->
+
+   <!-- calfhood -->
+    <fieldset>
+        <h3 class="content-title"><u>Calfhood</u></h3>
+        <!-- birth row -->
+        <div class='row'>
+            <div class='col-sm-4'>
+                <div class="form-group{% if form.birth_date.errors %} has-error{% endif %}">
+                    {{ form.birth_date.label_tag }}
+                    {{ form.birth_date }}
+                    <div class="text-muted pull-right">
+                        <small>{{ form.birth_date.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.birth_date.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+                <div class='form-group'>
+                    <div class="form-group{% if form.birth_weight.errors %} has-error{% endif %}">
+                        {{ form.birth_weight.label_tag }}
+                        {{ form.birth_weight }}
+                        <div class="text-muted pull-right">
+                            <small>{{ form.birth_weight.help_text }}</small>
+                        </div>
+                        <div class="help-block">
+                            {{ form.birth_weight.errors }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+       <!-- end birth row -->
+       <!-- weaning row -->
+       <div class="row">
+            <div class='col-sm-4'>
+                <div class="form-group{% if form.weaning_date.errors %} has-error{% endif %}">
+                    {{ form.weaning_date.label_tag }}
+                    {{ form.weaning_date }}
+                    <div class="text-muted pull-right">
+                        <small>{{ form.weaning_date.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.weaning_date.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+                <div class='form-group'>
+                    <div class="form-group{% if form.weaning_weight.errors %} has-error{% endif %}">
+                        {{ form.weaning_weight.label_tag }}
+                        {{ form.weaning_weight }}
+                        <div class="text-muted pull-right">
+                            <small>{{ form.weaning_weight.help_text }}</small>
+                        </div>
+                        <div class="help-block">
+                            {{ form.weaning_weight.errors }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+       <!-- end of weaning row -->
+       <!-- yearling row -->
+       <div class="row">
+           <div class='col-sm-4'>
+                <div class="form-group{% if form.yearling_date.errors %} has-error{% endif %}">
+                    {{ form.yearling_date.label_tag }}
+                    {{ form.yearling_date }}
+                    <div class="text-muted pull-right">
+                        <small>{{ form.yearling_date.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ form.yearling_date.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+                <div class='form-group'>
+                    <div class="form-group{% if form.yearling_weight.errors %} has-error{% endif %}">
+                        {{ form.yearling_weight.label_tag }}
+                        {{ form.yearling_weight }}
+                        <div class="text-muted pull-right">
+                            <small>{{ form.yearling_weight.help_text }}</small>
+                        </div>
+                        <div class="help-block">
+                            {{ form.yearling_weight.errors }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </fieldset>
+    <!-- end of status -->
+
+
+    <div class="form-group">
+         <div class="col-sm-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+         </div>
+         <!-- /col-sm-offset-4.col-sm-8 -->
+    </div>
+
+</form>

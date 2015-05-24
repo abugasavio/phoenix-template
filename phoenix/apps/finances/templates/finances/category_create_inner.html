@@ -1,0 +1,8 @@
+{% load bootstrap3 %}
+<div class="row">
+    <form action="{% url 'finances.category_create' %}" method="post" class="form" novalidate>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+    </form>
+</div>

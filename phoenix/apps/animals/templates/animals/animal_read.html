@@ -1,0 +1,257 @@
+{% extends "smartmin/read.html" %}
+{% load smartmin %}
+{% load staticfiles i18n %}
+{% block extra-style %}
+<!-- blueimp Gallery styles -->
+<link rel="stylesheet" href="{% static 'css/upload/blueimp-gallery.min.css' %}">
+<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+<link rel="stylesheet" href="{% static 'css/upload/jquery.fileupload-ui.css' %}">
+<!-- CSS adjustments for browsers with JavaScript disabled -->
+<noscript><link rel="stylesheet" href="{% static 'css/upload/jquery.fileupload-ui-noscript.css' %}"></noscript>
+<style>
+.preview img {
+    max-height:50px;
+}
+</style>
+{% endblock %}
+{% block title %}{{ block.super }}  | Add Animal {% endblock title %}
+{% block page_title %} Animal Details {% endblock %}
+
+{% block content %}
+<h3><span class="label label-primary"> {{ object.state | title}}</span></h3>
+<div class="row">
+    <div class="col-md-12 buttons">
+      {% block read-buttons %}
+      {% if view.edit_button %}
+      <a class="btn btn-primary pull-right" href="../../update/{{ object.id }}/">Edit</a>
+      {% endif %}
+      {% endblock %}
+    </div>
+</div>
+<div class="layout layout-main-right layout-stack-sm row">
+        <div class="col-md-3 col-sm-4 layout-sidebar">
+          <ul id="myTab" class="nav nav-layout-sidebar nav-stacked">
+            <li class="active">
+              <a href="#identity-tab" data-toggle="tab">
+              &nbsp;&nbsp;Identity
+              </a>
+            </li>
+            <li>
+              <a href="#description-tab" data-toggle="tab">
+              &nbsp;&nbsp;Description
+              </a>
+            </li>
+
+            <li>
+              <a href="#calfhood-tab" data-toggle="tab">
+              &nbsp;&nbsp;Calfhood
+              </a>
+            </li>
+
+            <li>
+              <a href="#status-tab" data-toggle="tab">
+              &nbsp;&nbsp;Status
+              </a>
+            </li>
+          </ul>
+
+        </div> <!-- /.col -->
+
+
+
+        <div class="col-md-9 col-sm-8 layout-main">
+
+          <div id="settings-content" class="tab-content stacked-content">
+
+            <div class="tab-pane fade in active" id="identity-tab">
+                 <table class="table table-striped">
+                    <tbody>
+                      <tr class="read-farmguru-id">
+                        <td class="read-label">Farmguru Id</td>
+                        <td class="read-value">{{ object.id }}&nbsp;</td>
+                      </tr>
+                      <tr class="read-ear-tag">
+                        <td class="read-label">Ear Tag</td>
+                        <td class="read-value">{{ object.ear_tag }}&nbsp;</td>
+                      </tr>
+                      <tr class="read-animal-id">
+                        <td class="read-label">Animal Id</td>
+                        <td class="read-value">{{ object.animal_id }}&nbsp;</td>
+                      </tr>
+                      <tr class="read-electronic-id">
+                        <td class="read-label">Electronic Id</td>
+                        <td class="read-value">{{ object.electronic_id }}&nbsp;</td>
+                      </tr>
+                      <tr class="read-alt-id">
+                        <td class="read-label">Alt Id</td>
+                        <td class="read-value">{{ object.alt_id }}&nbsp;</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+
+
+            </div> <!-- /.tab-pane -->
+
+            <div class="tab-pane" id="description-tab">
+              <table class="table table-striped">
+                <tbody>
+                   <tr class="read-color-id">
+                    <td class="read-label">Color Markings</td>
+                    <td class="read-value">{{ object.color }}&nbsp;</td>
+                  </tr>
+                  <tr class="read-gender-id">
+                    <td class="read-label">Gender</td>
+                    <td class="read-value">{{ object.gender}}&nbsp;</td>
+                  </tr>
+                  <tr class="read-breed-id">
+                    <td class="read-label">Breed</td>
+                    <td class="read-value">{{ object.breed }}&nbsp;</td>
+                  </tr>
+                  <tr class="read-sire-id">
+                    <td class="read-label">Sire</td>
+                    <td class="read-value">{{ object.sire }}&nbsp;</td>
+                  </tr>
+                  <tr class="read-dam-id">
+                    <td class="read-label">Dam</td>
+                    <td class="read-value">{{ object.dam }}&nbsp;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div> <!-- /.tab-pane -->
+
+            <div class="tab-pane fade" id="calfhood-tab">
+              <table class="table table-striped">
+                <tbody>
+                  <tr class="read-birthdate-id">
+                    <td class="read-label">Birth date</td>
+                    <td class="read-value">{{ object.birth_date }}&nbsp;</td>
+                  </tr>
+                  <tr class="read-birthweight-tag">
+                    <td class="read-label">Birth weight</td>
+                    <td class="read-value">{{ object.birth_weight }}&nbsp;</td>
+                  </tr>
+                  <tr class="read-weaningdate-id">
+                    <td class="read-label">Weaning date</td>
+                    <td class="read-value">{{ object.weaning_date }}&nbsp;</td>
+                  </tr>
+                  <tr class="read-weaningweight-id">
+                    <td class="read-label">Weaning weight</td>
+                    <td class="read-value">{{ object.weaning_weight }}&nbsp;</td>
+                  </tr>
+                  <tr class="read-yearlingdate-id">
+                    <td class="read-label">Yearling date</td>
+                    <td class="read-value">{{ object.yearling_date }}&nbsp;</td>
+                  </tr>
+                  <tr class="read-yearlingweight-id">
+                    <td class="read-label">Yearling weight</td>
+                    <td class="read-value">{{ object.yearling_weight }}&nbsp;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div> <!-- /.tab-pane -->
+
+            <div class="tab-pane fade" id="status-tab">
+               <table class="table table-striped">
+               <tbody>
+                <tr class="read-weaningdate-id">
+                    <td class="read-label">State</td>
+                    <td class="read-value">{{ object.state }}&nbsp;</td>
+                  </tr>
+                  <tr class="read-weaningweight-id">
+                    <td class="read-label">Created</td>
+                    <td class="read-value">{{ object.created_on }}&nbsp;</td>
+                  </tr>
+                  <tr class="read-weaningweight-id">
+                    <td class="read-label">Created by</td>
+                    <td class="read-value">{{ object.created_by }}&nbsp;</td>
+                  </tr>
+                  <tr class="read-yearlingdate-id">
+                    <td class="read-label">Updated</td>
+                    <td class="read-value">{{ object.modified_on }}&nbsp;</td>
+                  </tr>
+                  <tr class="read-yearlingdate-id">
+                    <td class="read-label">Updated by</td>
+                    <td class="read-value">{{ object.modified_by }}&nbsp;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div> <!-- /.tab-pane -->
+
+          </div> <!-- /.tab-content -->
+
+        </div> <!-- /.col -->
+
+      </div> <!-- /.row -->
+<div class="row">
+<div role="tabpanel">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+      {% if fertile %}
+        <li role="presentation"><a href="#services" aria-controls="services" role="tab" data-toggle="tab">Services</a></li>
+        <li role="presentation"><a href="#pregnancies" aria-controls="pregnancies" role="tab" data-toggle="tab">Pregnancy Checks</a></li>
+        <li role="presentation"><a href="#offsprings" aria-controls="offsprings" role="tab" data-toggle="tab">Offsprings</a></li>
+        <li role="presentation"><a href="#milkproduction" aria-controls="milkproduction" role="tab" data-toggle="tab">Milk Production</a></li>
+      {% endif %}
+      <li role="presentation"><a href="#health" aria-controls="health" role="tab" data-toggle="tab">Health</a></li>
+      <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">Notes</a></li>
+      <li role="presentation"><a href="#documents" aria-controls="documents" role="tab" data-toggle="tab">Documents</a></li>
+      <li role="presentation"><a href="#transactions" aria-controls="transactions" role="tab" data-toggle="tab">Transactions</a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+      {% if fertile %}
+        <div role="tabpanel" class="tab-pane" id="services">{{ services }}</div>
+        <div role="tabpanel" class="tab-pane" id="pregnancies">{{ pregnancies }}</div>
+        <div role="tabpanel" class="tab-pane" id="offsprings">{{ offsprings }}</div>
+        <div role="tabpanel" class="tab-pane" id="milkproduction">{{ milkproduction }}</div>
+      {% endif %}
+      <div role="tabpanel" class="tab-pane" id="health">{{ treatment }}</div>
+      <div role="tabpanel" class="tab-pane" id="notes">{{ notes }}</div>
+      <div role="tabpanel" class="tab-pane" id="documents">{{ animal_documents }}</div>
+      <div role="tabpanel" class="tab-pane" id="transactions">{{ transactions }}</div>
+  </div>
+</div>
+ </div>
+
+
+{% endblock %}
+{% block extra-script %}
+<script>
+    $('.nav-tabs a:first').tab('show')
+</script>
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="{% static 'js/upload/vendor/jquery.ui.widget.js' %}"></script>
+<!-- The Templates plugin is included to render the upload/download listings -->
+<script src="{% static 'js/upload/tmpl.min.js' %}"></script>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="{% static 'js/upload/load-image.min.js' %}"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="{% static 'js/upload/canvas-to-blob.min.js' %}"></script>
+<!-- blueimp Gallery script -->
+<script src="{% static 'js/upload/jquery.blueimp-gallery.min.js' %}"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="{% static 'js/upload/jquery.iframe-transport.js' %}"></script>
+<!-- The basic File Upload plugin -->
+<script src="{% static 'js/upload/jquery.fileupload.js' %}"></script>
+<!-- The File Upload processing plugin -->
+<script src="{% static 'js/upload/jquery.fileupload-process.js' %}"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="{% static 'js/upload/jquery.fileupload-image.js' %}"></script>
+<!-- The File Upload audio preview plugin -->
+<script src="{% static 'js/upload/jquery.fileupload-audio.js' %}"></script>
+<!-- The File Upload video preview plugin -->
+<script src="{% static 'js/upload/jquery.fileupload-video.js' %}"></script>
+<!-- The File Upload validation plugin -->
+<script src="{% static 'js/upload/jquery.fileupload-validate.js' %}"></script>
+<!-- The File Upload user interface plugin -->
+<script src="{% static 'js/upload/jquery.fileupload-ui.js' %}"></script>
+<!-- The main application script -->
+<script src="{% static 'js/upload/main.js' %}"></script>
+<script src="{% static 'js/upload/locale.js' %}"></script>
+<script src="{% static 'js/upload/csrf.js' %}"></script>
+<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
+<!--[if gte IE 8]>
+<script src="{% static 'js/upload/cors/jquery.xdr-transport.js' %}"></script>
+<![endif]-->
+{% endblock %}

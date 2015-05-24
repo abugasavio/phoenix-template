@@ -1,0 +1,102 @@
+{% load staticfiles i18n %}
+<header class="navbar navbar-inverse" role="banner">
+
+    <div class="container">
+
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-cog"></i>
+        </button>
+
+        <a href="./" class="navbar-brand navbar-brand-img">
+          <img src="{% static 'images/logo.png' %}" alt="Farmguru">
+        </a>
+      </div> <!-- /.navbar-header -->
+
+
+        <ul class="nav navbar-nav navbar-right">
+
+          <li>
+            <a href="javsacript:;">About</a>
+          </li>
+
+          <li>
+            <a href="javascript:;">Resources</a>
+          </li>
+
+          <li class="dropdown navbar-profile">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+              <img src="{% static 'img/avatars/sahika.jpg' %}" class="navbar-profile-avatar" alt="">
+              <span class="navbar-profile-label">rod@rod.me &nbsp;</span>
+              <i class="fa fa-caret-down"></i>
+            </a>
+
+            <ul class="dropdown-menu" role="menu">
+
+              <li>
+                <a href="./page-profile.html">
+                  <i class="fa fa-user"></i>
+                  &nbsp;&nbsp;My Profile
+                </a>
+              </li>
+
+              <li>
+                <a href="./page-pricing.html">
+                  <i class="fa fa-dollar"></i>
+                  &nbsp;&nbsp;Plans & Billing
+                </a>
+              </li>
+
+              <li>
+                <a href="./page-settings.html">
+                  <i class="fa fa-cogs"></i>
+                  &nbsp;&nbsp;Settings
+                </a>
+              </li>
+
+              <li class="divider"></li>
+
+              <li>
+                <a href="./account-login.html">
+                  <i class="fa fa-sign-out"></i>
+                  &nbsp;&nbsp;Logout
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div> <!-- /.container -->
+
+  </header>
+
+
+  <div class="mainnav">
+
+    <div class="container">
+
+      <a class="mainnav-toggle" data-toggle="collapse" data-target=".mainnav-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="fa fa-bars"></i>
+      </a>
+
+      <nav class="collapse mainnav-collapse" role="navigation">
+        <ul class="mainnav-menu">
+          <li><a href="{% url 'animals.animal_list' %}">Livestock</a></li>
+          <li><a href="#">Groups</a></li>
+          <li><a href="#">Pastures</a></li>
+          <li><a href="{% url 'health.treatment_list' %}">Treatment</a>
+          <li><a href="{% url 'finances.transaction_list' %}">Transactions</a></li>
+        </ul>
+
+      </nav>
+
+    </div> <!-- /.container -->
+
+  </div> <!-- /.mainnav -->

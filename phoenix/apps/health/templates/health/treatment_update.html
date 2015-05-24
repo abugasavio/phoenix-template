@@ -1,0 +1,7 @@
+{% extends "smartmin/update.html" %}
+{% load staticfiles i18n %}
+{% block extra-script %}
+    <script type="text/javascript" src="{% static 'js/select2/heavy_data.js' %}"></script>
+{% endblock %}
+{% block title %}{{ block.super }}  | Update Treatment {% endblock title %}
+{% block page_title %} Update Treatment {% endblock %}

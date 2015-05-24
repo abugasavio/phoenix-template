@@ -1,0 +1,9 @@
+/* Preview for the fileupload */
+.preview img {
+    max-height:50px;
+}
+
+/* Making select2 100% */
+.select2width{
+   width:100%;
+}

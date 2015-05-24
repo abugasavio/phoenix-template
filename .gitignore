@@ -30,3 +30,6 @@ node_modules/
 
 # Compass
 .sass-cache
+
+# Static files
+staticfiles/

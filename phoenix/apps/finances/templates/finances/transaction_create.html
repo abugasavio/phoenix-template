@@ -1,0 +1,52 @@
+{% extends "smartmin/create.html" %}
+{% load staticfiles i18n %}
+{% block title %}{{ block.super }}  | Add Transaction {% endblock title %}
+{% block page_title %} Add {{ request.GET.type|title }} {% endblock %}
+{% block content %}
+{{ block.super }}
+ <div class="modal fade" id="form-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+         <h4 class="modal-title">Adding ...</h4>
+       </div>
+        <div id="form-modal-body" class="modal-body">
+       </div>
+     </div>
+   </div>
+ </div>
+{% endblock %}
+{% block extra-script %}
+<script type="text/javascript" src="{% static 'js/select2/heavy_data.js' %}"></script>
+<script>
+
+    var formAjaxSubmit = function(form, modal) {
+        $(form).submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: $(this).attr('method'),
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success: function (xhr, ajaxOptions, thrownError) {
+                    if ( $(xhr).find('.has-error').length > 0 ) {
+                        $(modal).find('.modal-body').html(xhr);
+                        formAjaxSubmit(form, modal);
+                    } else {
+                        $(modal).find('.modal-body').html('<div class="alert alert-success" role="alert">Category Added Successfully</div>');
+
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+    }
+    $('#comment-button').click(function() {
+        $('#form-modal-body').load('/finances/category/create/', function () {
+            $('#form-modal').modal('toggle');
+            formAjaxSubmit('#form-modal-body form', '#form-modal');
+        });
+    });
+</script>
+{% endblock %}

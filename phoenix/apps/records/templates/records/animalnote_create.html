@@ -1,0 +1,6 @@
+{% extends "smartmin/create.html" %}
+{% block title %}{{ block.super }}  | Add Animal Note{% endblock title %}
+{% block page_title %} Add Animal Note {% endblock %}
+{% block content %}
+    {% include 'records/animalnote_form.html' %}
+{% endblock %}

@@ -44,9 +44,6 @@ class Animal(SmartModel):
     GENDER_CHOICES = Choices(('bull', _('Bull')), ('cow', _('Cow')))
 
     # Identification
-    animal_id = models.CharField(max_length=30, blank=True)
-    alt_id = models.CharField(max_length=30, blank=True)
-    electronic_id = models.CharField(max_length=30, blank=True)
     ear_tag = models.CharField(max_length=30, blank=False)
     name = models.CharField(max_length=30, blank=False)
 

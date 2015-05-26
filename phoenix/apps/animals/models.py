@@ -7,7 +7,11 @@ from django_fsm import FSMField, transition
 
 class Breed(SmartModel):
     name = models.CharField(max_length=30)
-    gestation_period = models.IntegerField(max_length=4)
+
+
+class Color(SmartModel):
+    # http://www.sss-mag.com/fernhill/cowcolor.html
+    name = models.CharField(max_length=50)
 
 
 class Breeder(SmartModel):

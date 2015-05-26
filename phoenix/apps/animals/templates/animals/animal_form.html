@@ -1,4 +1,5 @@
 {% load staticfiles i18n %}
+{% load smartmin %}
 {% block extra-script %}
     <script type="text/javascript" src="{% static 'js/select2/heavy_data.js' %}"></script>
 {% endblock %}
@@ -88,10 +89,14 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class='row'>
             <div class='col-sm-4'>
                 <div class="form-group{% if form.sire.errors %} has-error{% endif %}">
                     {{ form.sire.label_tag }}
-                    {{ form.sire }}
+                    <div>
+                    {{ form.sire|add_css:"select2width" }}
+                    </div>
                     <div class="text-muted pull-right">
                         <small>{{ form.sire.help_text }}</small>
                     </div>
@@ -103,7 +108,9 @@
             <div class='col-sm-4'>
                <div class="form-group{% if form.dam.errors %} has-error{% endif %}">
                     {{ form.dam.label_tag }}
-                    {{ form.dam }}
+                    <div>
+                    {{ form.dam|add_css:"select2width" }}
+                    </div>
                     <div class="text-muted pull-right">
                         <small>{{ form.dam.help_text }}</small>
                     </div>

@@ -51,6 +51,7 @@ LOCAL_APPS = (
     'phoenix.apps.finances',
     'phoenix.apps.health',
     'phoenix.apps.utils',
+    'phoenix.apps.utils.upload',
     'phoenix.apps.records',
 )
 

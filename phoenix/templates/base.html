@@ -1,10 +1,10 @@
-{% load staticfiles i18n %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
+  {% load staticfiles i18n %}
   {% load bootstrap3 %}
   <title>{% block title %} Farmguru {% endblock %}</title>
 
@@ -28,6 +28,8 @@
   <link rel="stylesheet" href="{% static 'css/mvpready-flat.css' %}">
   <link rel="stylesheet" href="{% static 'css/farmguru.css' %}">
 
+
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
 
@@ -39,6 +41,7 @@
 
   <!-- JQuery -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
   {% block extra-style %}{% endblock %}
 
 </head>
@@ -95,6 +98,10 @@
 
 {% block script %}{% endblock %}
 {# endcompress #}
-
+{% load django_select2_tags %}
+{% import_django_select2_js %}
+{% import_django_select2_css %}
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="{% static 'css/select2-bootstrap.css' %}">
 </body>
 </html>
